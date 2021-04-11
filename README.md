@@ -14,9 +14,13 @@ speed - [double] learning speed
 layers-cfg - path to text file containing a single line with hidden layers' outputs number
 
 
+
+
 err_graph.py - script for training and validation errors visualisation
 
 Usage: python err_graph.py <output-dir>
+
+
 
 
 draw_results.py - script for classification results visualisation
