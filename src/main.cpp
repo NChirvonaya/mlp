@@ -158,12 +158,14 @@ int out_to_ans(int   n_classes,
 int main(int argc, char* argv[]) {
 
     if (argc != 6) {
-        throw(stderr, "not enough arguments!\n");
+        std::cout <<  "Not enough arguments!\n";
+        return 0;
     }
     std::string input_path(argv[1]);
     std::string output_dir(argv[2]);
     int epoch_max(std::atoi(argv[3]));
     double speed(std::atof(argv[4]));
+    printf("Epoch max: %d\nSpeed: %.3f\n", epoch_max, speed);
     std::string layers_cfg_path(argv[5]);
 
     std::vector<DataItem> input_data;
@@ -243,8 +245,12 @@ int main(int argc, char* argv[]) {
         iss >> sz;
         l_szs.push_back(sz);
     }
+    l_szs.pop_back();
 
     size_t n_layers(l_szs.size());
+
+    printf("Perceptron with %d layers will be trained.\n", n_layers);
+
     std::vector<Layer> lrs(n_layers);
     for (size_t i(0); i < lrs.size(); ++i) {
         lrs[i].setSize(l_szs[i]);
